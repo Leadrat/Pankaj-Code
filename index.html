@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tic Tac Toe</h1>
+        </header>
+        
+        <div class="game-setup">
+            <div class="player-inputs">
+                <div class="input-group">
+                    <label for="playerX">Player X Name:</label>
+                    <input type="text" id="playerX" placeholder="Enter Player X name" value="Player X">
+                </div>
+                <div class="input-group">
+                    <label for="playerO">Player O Name:</label>
+                    <input type="text" id="playerO" placeholder="Enter Player O name" value="Player O">
+                </div>
+            </div>
+        </div>
+
+        <div class="game-info">
+            <div class="current-player">
+                <span id="currentPlayerDisplay">Player X's Turn</span>
+            </div>
+            <div class="scoreboard">
+                <div class="score">
+                    <span id="playerXScore">Player X: 0</span>
+                </div>
+                <div class="score">
+                    <span id="playerOScore">Player O: 0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <div class="game-controls">
+            <button id="restartBtn" class="restart-btn">New Game</button>
+        </div>
+
+        <div class="game-status">
+            <div id="gameStatus" class="status-message"></div>
+        </div>
+    </div>
+
+    <script src="dist/script.js"></script>
+</body>
+</html>

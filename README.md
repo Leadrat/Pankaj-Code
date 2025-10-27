@@ -1,73 +1,103 @@
-# Welcome to your Lovable project
+# 🎮 Tic Tac Toe – Full Stack Web App (Next.js + Node.js + Supabase)
 
-## Project info
+A beautiful and intelligent **Tic Tac Toe Game** built using **Next.js**, **Tailwind CSS**, **Node.js**, and **Supabase**.  
+This game features user authentication, AI opponents (with the unbeatable **Minimax Algorithm**), replay & history tracking, and a clean modern UI.  
 
-**URL**: https://lovable.dev/projects/f6c3b93d-2c32-47a5-8a8e-e385c093350f
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+### 🧩 Core Gameplay
+- 🎯 **Classic Tic Tac Toe** board (3x3)
+- 🧠 **AI Opponent** powered by **Minimax Algorithm**
+  - Easy (Random)
+  - Medium (Basic Strategy)
+  - Hard (Unbeatable Minimax)
+- 👥 **Two Player Mode** (Local Multiplayer)
 
-**Use Lovable**
+### 🔐 Authentication
+- Login & Sign Up with **Supabase Auth**
+- Secure session management
+- Logout functionality
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f6c3b93d-2c32-47a5-8a8e-e385c093350f) and start prompting.
+### 📊 Game History & Replay
+- Track all past games linked to each user
+- View **move logs** in `(row, col)` format
+- **Replay** past matches step-by-step
+- **Time Travel** feature to review any move in history
+- Personal **Scoreboard** showing wins, losses & draws
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🎨 UI/UX
+- Built using **Tailwind CSS**
+- Responsive and mobile-friendly
+- Dark mode with glowing **neon-blue theme**
+- Smooth **Framer Motion animations**
+- Interactive sound effects for moves and results
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🧱 Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+| Layer | Technology Used |
+|--------|-----------------|
+| Frontend | Next.js (TypeScript), Tailwind CSS, Framer Motion |
+| Backend | Node.js, Supabase (PostgreSQL) |
+| Database | Supabase Postgres |
+| Authentication | Supabase Auth |
+| Deployment | Vercel (Frontend) + Supabase (Backend & DB) |
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🗄️ Database Schema (Supabase SQL)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```sql
+CREATE TABLE profiles (
+  id uuid PRIMARY KEY REFERENCES auth.users(id),
+  username text,
+  created_at timestamptz DEFAULT now()
+);
 
-# Step 3: Install the necessary dependencies.
-npm i
+CREATE TABLE games (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  owner uuid REFERENCES profiles(id),
+  difficulty text,
+  mode text,
+  result text,
+  created_at timestamptz DEFAULT now()
+);
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+CREATE TABLE moves (
+  id bigserial PRIMARY KEY,
+  game_id uuid REFERENCES games(id) ON DELETE CASCADE,
+  player text,
+  row int,
+  col int,
+  move_index int,
+  created_at timestamptz DEFAULT now()
+);
+
+
+⚙️ Installation & Setup
+1️⃣ Clone the Repository
+git clone https://github.com/<your-username>/tic-tac-toe-supabase.git
+cd tic-tac-toe-supabase
+
+2️⃣ Install Dependencies
+npm install
+
+3️⃣ Setup Environment Variables
+
+Create a .env.local file in your root directory:
+
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+
+
+⚠️ Don’t forget to add .env* files to .gitignore to keep your keys private.
+
+4️⃣ Run the App
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f6c3b93d-2c32-47a5-8a8e-e385c093350f) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Then open: http://localhost:3000

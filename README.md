@@ -1,213 +1,186 @@
-# Tic-Tac-Toe Game - Full Stack Application
+# Game App - Full Stack Application
 
-A full-stack Tic-Tac-Toe web application with AI opponent, authentication, score tracking, and admin dashboard.
+A complete full-stack game application with .NET 8 Web API backend and Flutter frontend following Clean Architecture principles.
 
-## Features
+## 🏗️ Architecture
 
-### 🔐 Authentication
-- User registration and login using ASP.NET Core Identity
-- Secure JWT-based authentication
-- Protected routes and role-based access
+### Backend (.NET 8 Web API)
+- **Clean Architecture**: Domain, Application, Infrastructure, and Presentation layers
+- **Database**: SQLite with Entity Framework Core
+- **Authentication**: JWT with User and Admin roles
+- **API Documentation**: Swagger/OpenAPI
+- **CORS**: Configured for Flutter frontend communication
 
-### 🎮 Game Modes
-- **Single Player Mode**: Play against an intelligent AI using the Minimax algorithm
-- **Two Player Mode**: Play with a friend on the same device
+### Frontend (Flutter)
+- **Clean Architecture**: Features-based structure with BLoC pattern
+- **State Management**: Flutter BLoC
+- **UI**: Material 3 design with animations
+- **Local Storage**: SharedPreferences for token caching
+- **Network**: Dio for HTTP requests with interceptors
 
-### 📊 Score Tracking
-- Personal scoreboard showing wins, losses, and draws
-- Win rate statistics
-- Automatic score submission after each game
+## 🚀 Getting Started
 
-### 👑 Admin Dashboard
-- View all registered players and their statistics
-- Global game statistics
-- Top players leaderboard
+### Prerequisites
+- .NET 8 SDK
+- Flutter SDK
+- Visual Studio Code / Visual Studio / Android Studio
+- Android Emulator or Physical Device (for Flutter)
 
-### 🎨 UI/UX Features
-- Modern, responsive design using Tailwind CSS
-- Dark/Light theme toggle
-- Toast notifications for user feedback
-- Mobile-friendly interface
+### Installation
 
-## Tech Stack
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd "mobile app"
+   ```
 
-### Backend
-- **.NET 8** - ASP.NET Core Web API
-- **Entity Framework Core** - ORM for database operations
-- **SQLite** - Database (easily switchable to SQL Server/PostgreSQL)
-- **ASP.NET Core Identity** - User authentication and authorization
-- **JWT Bearer Authentication** - Secure API access
-- **Swagger** - API documentation
+2. **Backend Setup**
+   ```bash
+   cd GameBackend
+   dotnet restore
+   dotnet build
+   ```
 
-### Frontend
-- **React 18** - UI library
-- **React Router** - Client-side routing
-- **Tailwind CSS** - Utility-first CSS framework
-- **Axios** - HTTP client
-- **React Toastify** - Toast notifications
-- **Context API** - State management
+3. **Frontend Setup**
+   ```bash
+   cd game_frontend
+   flutter pub get
+   flutter doctor
+   ```
 
-## Prerequisites
+### Running the Application
 
-- **.NET 8 SDK** or later
-- **Node.js 16** or later
-- **npm** or **yarn**
-
-## Installation & Setup
-
-### Backend Setup
-
-1. Navigate to the project root directory.
-
-2. Restore dependencies and build the project:
+#### Option 1: Using the Startup Script
+Simply run the batch file:
 ```bash
-dotnet restore
-dotnet build
+start_app.bat
 ```
 
-3. Create the database:
-```bash
-dotnet ef database update
-```
+#### Option 2: Manual Start
 
-**Note**: If you haven't installed Entity Framework tools globally, install them first:
-```bash
-dotnet tool install --global dotnet-ef
-```
+1. **Start the Backend**
+   ```bash
+   cd GameBackend
+   dotnet run
+   ```
+   Backend will be available at: `http://localhost:5000`
 
-4. Run the backend server:
-```bash
-dotnet run
-```
+2. **Start the Frontend** (in a new terminal)
+   ```bash
+   cd game_frontend
+   flutter run
+   ```
 
-The API will be available at `http://localhost:5000` or `https://localhost:5001`
+### API Documentation
+Once the backend is running, you can access the Swagger documentation at:
+`http://localhost:5000/swagger`
 
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-```bash
-cd frontend
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm start
-```
-
-The React app will open at `http://localhost:3000`
-
-## Default Admin Credentials
-
-The application automatically creates an admin user on first run:
-
-- **Email**: `admin@tictactoe.com`
-- **Password**: `Admin@123`
-
-**⚠️ Important**: Change this password in production!
-
-## API Endpoints
+## 📱 Features
 
 ### Authentication
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login and get JWT token
+- User registration and login
+- JWT token-based authentication
+- Role-based authorization (User/Admin)
+- Token caching and refresh
 
-### Game
-- `POST /api/game/submit-score` - Submit game result (requires authentication)
-- `GET /api/game/scores` - Get current user's scores (requires authentication)
+### User Management
+- Profile management
+- Score tracking
+- Match history
 
-### Admin
-- `GET /api/admin/players` - Get all players with statistics (requires admin role)
-- `GET /api/admin/statistics` - Get global statistics (requires admin role)
+### Admin Panel
+- User management
+- Score management
+- System statistics
 
-## Project Structure
+## 🔧 Configuration
 
-```
-.NET Tic Tac Toe/
-├── frontend/                    # React application
-│   ├── public/                  
-│   ├── src/
-│   │   ├── components/         # Reusable components
-│   │   │   ├── Navbar.js
-│   │   │   └── PrivateRoute.js
-│   │   ├── context/            # React context providers
-│   │   │   ├── AuthContext.js
-│   │   │   └── ThemeContext.js
-│   │   ├── pages/              # Page components
-│   │   │   ├── Landing.js
-│   │   │   ├── Login.js
-│   │   │   ├── Register.js
-│   │   │   ├── Game.js
-│   │   │   ├── Scoreboard.js
-│   │   │   └── AdminDashboard.js
-│   │   ├── styles/             # CSS files
-│   │   ├── App.js
-│   │   └── index.js
-│   ├── package.json
-│   └── tailwind.config.js
-├── Controllers/                 # API controllers
-│   ├── AuthController.cs
-│   ├── GameController.cs
-│   └── AdminController.cs
-├── Data/                       # Data layer
-│   └── ApplicationDbContext.cs
-├── Models/                     # Data models
-│   ├── ApplicationUser.cs
-│   ├── GameScore.cs
-│   ├── LoginRequest.cs
-│   ├── RegisterRequest.cs
-│   ├── LoginResponse.cs
-│   ├── SubmitScoreRequest.cs
-│   └── PlayerStatsResponse.cs
-├── Program.cs                  # Application entry point
-├── appsettings.json           # Configuration
-└── TicTacToe.csproj          # Project file
+### Backend Configuration (`appsettings.json`)
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=game.db"
+  },
+  "Jwt": {
+    "Key": "ThisIsASecretKeyForJWTTokenGeneration123!@#",
+    "Issuer": "GameBackend",
+    "Audience": "GameFrontend"
+  }
+}
 ```
 
-## Deployment
+### Frontend Configuration
+API endpoints are configured in `lib/core/constants/api_constants.dart`:
+```dart
+class ApiConstants {
+  static const String baseUrl = 'http://localhost:5000/api';
+  // ... other endpoints
+}
+```
 
-### Backend (Azure/Render)
-1. Update `appsettings.json` with production database connection string
-2. Deploy using Azure App Service or Render
-3. Configure environment variables for JWT secret key
+## 🏗️ Project Structure
+
+### Backend
+```
+GameBackend/
+├── GameBackend.Domain/          # Entities and interfaces
+├── GameBackend.Application/     # DTOs, services interfaces, use cases
+├── GameBackend.Infrastructure/  # Data access, external services
+├── GameBackend.Presentation/    # API controllers
+└── GameBackend/                 # Main project and configuration
+```
 
 ### Frontend
-1. Build production bundle:
-```bash
-cd frontend
-npm run build
+```
+game_frontend/
+├── lib/
+│   ├── core/                    # Shared utilities and constants
+│   │   ├── constants/
+│   │   ├── errors/
+│   │   ├── network/
+│   │   └── utils/
+│   └── features/                # Feature-based modules
+│       └── authentication/
+│           ├── data/           # Data sources and repositories
+│           ├── domain/         # Entities, use cases, repository interfaces
+│           └── presentation/   # UI, BLoC, pages, widgets
 ```
 
-2. Deploy `build` folder to:
-   - Azure Static Web Apps
-   - Netlify
-   - Vercel
-   - Or any static hosting service
+## 🔐 Default Admin User
+The application seeds a default admin user:
+- **Username**: admin
+- **Email**: admin@game.com
+- **Password**: Admin123!
 
-3. Update API URL in `frontend/src/context/AuthContext.js` to point to your deployed backend
+## 📊 Database
+The application uses SQLite for data persistence. The database file (`game.db`) is created automatically when the backend starts.
 
-## AI Algorithm
+## 🧪 Testing
 
-The game uses the **Minimax algorithm** for optimal AI play:
-- Minimax is a decision-making algorithm for turn-based games
-- The AI explores all possible game states to find the best move
-- This makes the AI unbeatable (it will either win or draw)
+### Backend Tests
+```bash
+cd GameBackend
+dotnet test
+```
 
-## Future Enhancements
+### Frontend Tests
+```bash
+cd game_frontend
+flutter test
+```
 
-- [ ] Online multiplayer mode
-- [ ] Game history replay
-- [ ] Achievement system
-- [ ] Sound effects and animations
-- [ ] Difficulty levels for AI
-- [ ] Tournament mode
-- [ ] Social features (friends, challenges)
+## 🚀 Deployment
 
-## Contributing
+### Backend Deployment
+- Build the application: `dotnet publish -c Release`
+- Deploy to your preferred hosting service (IIS, Docker, Azure, etc.)
+
+### Frontend Deployment
+- Build the APK: `flutter build apk --release`
+- Build for web: `flutter build web`
+- Deploy to app stores or web hosting
+
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -215,29 +188,32 @@ The game uses the **Minimax algorithm** for optimal AI play:
 4. Push to the branch
 5. Create a Pull Request
 
-## License
+## 📝 License
 
-This project is open source and available under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Troubleshooting
+## 🆘 Troubleshooting
 
-### Database Issues
-If you encounter database errors, delete the `.db` files and run `dotnet ef database update` again.
+### Common Issues
 
-### CORS Issues
-If you see CORS errors, ensure the backend is allowing requests from `http://localhost:3000` (check `Program.cs`).
+1. **Backend won't start**
+   - Ensure .NET 8 SDK is installed
+   - Check if port 5000 is available
+   - Run `dotnet restore` and `dotnet clean` then try again
 
-### Authentication Issues
-- Clear browser localStorage
-- Ensure JWT token is being stored after login
-- Check that API base URL is correct in `AuthContext.js`
+2. **Flutter build errors**
+   - Run `flutter clean` and `flutter pub get`
+   - Ensure Android SDK is properly configured
+   - Check if emulator/device is running
 
-## Support
+3. **CORS issues**
+   - Ensure backend is running before starting frontend
+   - Check CORS configuration in `Program.cs`
 
-For issues, questions, or contributions, please open an issue on the repository.
+4. **Database connection issues**
+   - Ensure the `game.db` file has proper permissions
+   - Check the connection string in `appsettings.json`
 
----
+## 📞 Support
 
-**Happy Gaming! 🎮**
-
-
+For support and questions, please open an issue in the repository.

@@ -1,6 +1,0 @@
-@GameBackendFixed_HostAddress = http://localhost:5072
-
-GET {{GameBackendFixed_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

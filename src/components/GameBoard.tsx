@@ -1,50 +1,41 @@
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-import type { Board } from "@/utils/gameLogic";
-
 interface GameBoardProps {
-  board: Board;
-  onCellClick: (row: number, col: number) => void;
-  winningLine?: number[][];
-  disabled?: boolean;
+  board: (string | null)[];
+  onCellClick: (index: number) => void;
+  disabled: boolean;
+  lastMove?: {
+    cellIndex: number;
+    symbol: string;
+    playerId: string;
+    timestamp: number;
+  };
 }
 
-export const GameBoard = ({ board, onCellClick, winningLine, disabled }: GameBoardProps) => {
-  const isWinningCell = (row: number, col: number) => {
-    return winningLine?.some(([r, c]) => r === row && c === col);
-  };
-
+export function GameBoard({ board, onCellClick, disabled, lastMove }: GameBoardProps) {
   return (
-    <div className="grid grid-cols-3 gap-3 w-full max-w-md mx-auto">
-      {board.map((row, rowIndex) =>
-        row.map((cell, colIndex) => (
-          <motion.button
-            key={`${rowIndex}-${colIndex}`}
-            whileHover={!disabled && !cell ? { scale: 1.05 } : {}}
-            whileTap={!disabled && !cell ? { scale: 0.95 } : {}}
-            onClick={() => !disabled && !cell && onCellClick(rowIndex, colIndex)}
-            disabled={disabled || !!cell}
-            className={cn(
-              "aspect-square glass-effect rounded-2xl flex items-center justify-center",
-              "text-5xl md:text-6xl font-bold transition-all duration-300",
-              !cell && !disabled && "cell-hover cursor-pointer",
-              isWinningCell(rowIndex, colIndex) && "winner-pulse",
-              cell === 'X' && "text-primary",
-              cell === 'O' && "text-destructive"
-            )}
-          >
-            {cell && (
-              <motion.span
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              >
-                {cell}
-              </motion.span>
-            )}
-          </motion.button>
-        ))
-      )}
+    <div className="grid grid-cols-3 gap-3 max-w-sm mx-auto">
+      {board.map((cell, index) => (
+        <button
+          key={index}
+          onClick={() => onCellClick(index)}
+          disabled={disabled || cell !== null}
+          className={`
+            aspect-square flex items-center justify-center text-4xl font-bold
+            rounded-2xl transition-all duration-300
+            ${cell === null && !disabled
+              ? "game-cell hover:scale-105 cursor-pointer"
+              : "game-cell cursor-not-allowed opacity-80"
+            }
+            ${lastMove?.cellIndex === index ? "ring-4 ring-yellow-400/60 bg-yellow-200/20" : ""}
+            ${cell === "X" ? "text-blue-300" : "text-pink-300"}
+          `}
+        >
+          {cell && (
+            <span className={`${lastMove?.cellIndex === index ? "animate-pulse" : ""} drop-shadow-lg`}>
+              {cell}
+            </span>
+          )}
+        </button>
+      ))}
     </div>
   );
-};
+}

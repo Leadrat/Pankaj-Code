@@ -1,56 +1,92 @@
-# Live Tic-Tac-Toe 🎮
+# Tic-Tac-Toe Game - Full Stack Application
 
-A beautiful, real-time multiplayer Tic-Tac-Toe game with persistent scoreboards, match history, and replay functionality.
+A full-stack Tic-Tac-Toe web application with AI opponent, authentication, score tracking, and admin dashboard.
 
-## ✨ Features
+## Features
 
 ### 🔐 Authentication
-- Email/password authentication with Convex Auth
-- Persistent user profiles with stats tracking
-- Secure session management
+- User registration and login using ASP.NET Core Identity
+- Secure JWT-based authentication
+- Protected routes and role-based access
 
-### 🎯 Real-time Multiplayer
-- Create or join game rooms with shareable room IDs
-- Real-time game state synchronization
-- Low-latency move updates
-- Automatic reconnection handling
+### 🎮 Game Modes
+- **Single Player Mode**: Play against an intelligent AI using the Minimax algorithm
+- **Two Player Mode**: Play with a friend on the same device
 
-### 📊 Persistent Scoreboard
-- Track wins, losses, draws, and win rate
-- Global leaderboard with top players
-- Personal statistics dashboard
-- Minimum 3 games required for leaderboard ranking
+### 📊 Score Tracking
+- Personal scoreboard showing wins, losses, and draws
+- Win rate statistics
+- Automatic score submission after each game
 
-### 🎬 Match Replay System
-- Complete move-by-move replay of finished games
-- Playback controls (play/pause, step forward/back)
-- Variable speed playback (0.5x to 4x)
-- Visual move history timeline
+### 👑 Admin Dashboard
+- View all registered players and their statistics
+- Global game statistics
+- Top players leaderboard
 
-### 🎨 Modern UI/UX
-- Responsive design that works on all devices
-- Beautiful gradient backgrounds and animations
-- Intuitive game controls and visual feedback
-- Real-time turn indicators and game status
+### 🎨 UI/UX Features
+- Modern, responsive design using Tailwind CSS
+- Dark/Light theme toggle
+- Toast notifications for user feedback
+- Mobile-friendly interface
 
-### 🏆 Game Features
-- Classic 3x3 Tic-Tac-Toe gameplay
-- Turn-based mechanics with visual indicators
-- Automatic win/draw detection
-- Room-based matchmaking system
+## Tech Stack
 
-## 🚀 Getting Started
+### Backend
+- **.NET 8** - ASP.NET Core Web API
+- **Entity Framework Core** - ORM for database operations
+- **SQLite** - Database (easily switchable to SQL Server/PostgreSQL)
+- **ASP.NET Core Identity** - User authentication and authorization
+- **JWT Bearer Authentication** - Secure API access
+- **Swagger** - API documentation
 
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+### Frontend
+- **React 18** - UI library
+- **React Router** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **Axios** - HTTP client
+- **React Toastify** - Toast notifications
+- **Context API** - State management
 
-### Installation
+## Prerequisites
 
-1. Clone the repository:
+- **.NET 8 SDK** or later
+- **Node.js 16** or later
+- **npm** or **yarn**
+
+## Installation & Setup
+
+### Backend Setup
+
+1. Navigate to the project root directory.
+
+2. Restore dependencies and build the project:
 ```bash
-git clone <repository-url>
-cd live-tic-tac-toe
+dotnet restore
+dotnet build
+```
+
+3. Create the database:
+```bash
+dotnet ef database update
+```
+
+**Note**: If you haven't installed Entity Framework tools globally, install them first:
+```bash
+dotnet tool install --global dotnet-ef
+```
+
+4. Run the backend server:
+```bash
+dotnet run
+```
+
+The API will be available at `http://localhost:5000` or `https://localhost:5001`
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+```bash
+cd frontend
 ```
 
 2. Install dependencies:
@@ -60,128 +96,148 @@ npm install
 
 3. Start the development server:
 ```bash
-npm run dev
+npm start
 ```
 
-The app will be available at `http://localhost:5173`
+The React app will open at `http://localhost:3000`
 
-## 🎮 How to Play
+## Default Admin Credentials
 
-### Creating a Game
-1. Sign up or sign in to your account
-2. Click "Create Room" to start a new game
-3. Share the generated room ID with your friend
-4. Wait for them to join and mark ready
-5. Start playing when both players are ready!
+The application automatically creates an admin user on first run:
 
-### Joining a Game
-1. Get a room ID from your friend
-2. Click "Join Room" and enter the room ID
-3. Mark yourself as ready
-4. Start playing when both players are ready!
+- **Email**: `admin@tictactoe.com`
+- **Password**: `Admin@123`
 
-### Gameplay
-- Players take turns placing X's and O's
-- First player to get 3 in a row wins
-- Games can end in wins, losses, or draws
-- All results are automatically saved to your stats
+**⚠️ Important**: Change this password in production!
 
-### Viewing Stats & History
-- Check your personal statistics on the main dashboard
-- View the global leaderboard to see top players
-- Browse your match history and replay any game
-- Use replay controls to analyze your games
+## API Endpoints
 
-## 🏗️ Technical Architecture
+### Authentication
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login and get JWT token
+
+### Game
+- `POST /api/game/submit-score` - Submit game result (requires authentication)
+- `GET /api/game/scores` - Get current user's scores (requires authentication)
+
+### Admin
+- `GET /api/admin/players` - Get all players with statistics (requires admin role)
+- `GET /api/admin/statistics` - Get global statistics (requires admin role)
+
+## Project Structure
+
+```
+.NET Tic Tac Toe/
+├── frontend/                    # React application
+│   ├── public/                  
+│   ├── src/
+│   │   ├── components/         # Reusable components
+│   │   │   ├── Navbar.js
+│   │   │   └── PrivateRoute.js
+│   │   ├── context/            # React context providers
+│   │   │   ├── AuthContext.js
+│   │   │   └── ThemeContext.js
+│   │   ├── pages/              # Page components
+│   │   │   ├── Landing.js
+│   │   │   ├── Login.js
+│   │   │   ├── Register.js
+│   │   │   ├── Game.js
+│   │   │   ├── Scoreboard.js
+│   │   │   └── AdminDashboard.js
+│   │   ├── styles/             # CSS files
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── package.json
+│   └── tailwind.config.js
+├── Controllers/                 # API controllers
+│   ├── AuthController.cs
+│   ├── GameController.cs
+│   └── AdminController.cs
+├── Data/                       # Data layer
+│   └── ApplicationDbContext.cs
+├── Models/                     # Data models
+│   ├── ApplicationUser.cs
+│   ├── GameScore.cs
+│   ├── LoginRequest.cs
+│   ├── RegisterRequest.cs
+│   ├── LoginResponse.cs
+│   ├── SubmitScoreRequest.cs
+│   └── PlayerStatsResponse.cs
+├── Program.cs                  # Application entry point
+├── appsettings.json           # Configuration
+└── TicTacToe.csproj          # Project file
+```
+
+## Deployment
+
+### Backend (Azure/Render)
+1. Update `appsettings.json` with production database connection string
+2. Deploy using Azure App Service or Render
+3. Configure environment variables for JWT secret key
 
 ### Frontend
-- **React 19** with TypeScript for type safety
-- **Tailwind CSS** for responsive styling
-- **Vite** for fast development and building
-- **Convex React** for real-time data synchronization
-
-### Backend
-- **Convex** for database, real-time updates, and serverless functions
-- **Convex Auth** for secure authentication
-- Real-time subscriptions for live game updates
-- Automatic data persistence and synchronization
-
-### Database Schema
-- **Users**: Authentication and profile data
-- **Rooms**: Active game sessions with real-time state
-- **Matches**: Completed game records with full move history
-- **UserStats**: Persistent win/loss/draw statistics
-
-## 📱 Responsive Design
-
-The application is fully responsive and works seamlessly on:
-- Desktop computers (1024px+)
-- Tablets (768px - 1023px)
-- Mobile phones (320px - 767px)
-
-## 🔧 Development
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run TypeScript and ESLint checks
-- `npm run dev:frontend` - Start only the frontend
-- `npm run dev:backend` - Start only Convex backend
-
-### Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── GameBoard.tsx   # Tic-tac-toe board component
-│   ├── GameLobby.tsx   # Main lobby interface
-│   ├── GameRoom.tsx    # Active game room
-│   ├── Leaderboard.tsx # Global rankings
-│   ├── MatchHistory.tsx # Personal game history
-│   └── ReplayViewer.tsx # Game replay system
-├── App.tsx             # Main application component
-└── main.tsx           # Application entry point
-
-convex/
-├── schema.ts          # Database schema definitions
-├── games.ts           # Game logic and mutations
-├── auth.ts            # Authentication functions
-└── _generated/        # Auto-generated Convex files
+1. Build production bundle:
+```bash
+cd frontend
+npm run build
 ```
 
-## 🌟 Key Features Explained
+2. Deploy `build` folder to:
+   - Azure Static Web Apps
+   - Netlify
+   - Vercel
+   - Or any static hosting service
 
-### Real-time Synchronization
-The game uses Convex's real-time database to ensure all players see updates instantly. When a player makes a move, it's immediately reflected for all participants without manual refreshing.
+3. Update API URL in `frontend/src/context/AuthContext.js` to point to your deployed backend
 
-### Persistent Statistics
-All game results are automatically saved and contribute to your permanent statistics. Win rates are calculated in real-time and displayed on the leaderboard.
+## AI Algorithm
 
-### Replay System
-Every move is recorded with timestamps, allowing for complete game reconstruction. The replay viewer lets you step through games move-by-move or watch them play automatically.
+The game uses the **Minimax algorithm** for optimal AI play:
+- Minimax is a decision-making algorithm for turn-based games
+- The AI explores all possible game states to find the best move
+- This makes the AI unbeatable (it will either win or draw)
 
-### Room-based Matchmaking
-Games are organized into rooms with unique IDs. Players can easily share room codes to invite specific opponents, making it perfect for playing with friends.
+## Future Enhancements
 
-## 🎯 Future Enhancements
+- [ ] Online multiplayer mode
+- [ ] Game history replay
+- [ ] Achievement system
+- [ ] Sound effects and animations
+- [ ] Difficulty levels for AI
+- [ ] Tournament mode
+- [ ] Social features (friends, challenges)
 
-Potential features for future versions:
-- Spectator mode for watching games
-- Tournament brackets and organized competitions
-- Chat system within game rooms
-- Customizable board sizes (4x4, 5x5)
-- AI opponent for single-player practice
-- Social features and friend lists
+## Contributing
 
-## 📄 License
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
 
 This project is open source and available under the MIT License.
 
-## 🤝 Contributing
+## Troubleshooting
 
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
+### Database Issues
+If you encounter database errors, delete the `.db` files and run `dotnet ef database update` again.
+
+### CORS Issues
+If you see CORS errors, ensure the backend is allowing requests from `http://localhost:3000` (check `Program.cs`).
+
+### Authentication Issues
+- Clear browser localStorage
+- Ensure JWT token is being stored after login
+- Check that API base URL is correct in `AuthContext.js`
+
+## Support
+
+For issues, questions, or contributions, please open an issue on the repository.
 
 ---
 
-Built with ❤️ using Convex, React, and TypeScript
+**Happy Gaming! 🎮**
+
+

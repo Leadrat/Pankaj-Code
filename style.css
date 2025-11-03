@@ -5,32 +5,126 @@
     box-sizing: border-box;
 }
 
+/* CSS Custom Properties for Theme Management */
+:root {
+    /* Light Mode Colors */
+    --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-secondary: white;
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text-accent: #333;
+    --border-color: #ddd;
+    --input-bg: white;
+    --input-border: #ddd;
+    --input-focus-border: #667eea;
+    --input-focus-shadow: rgba(102, 126, 234, 0.1);
+    --scoreboard-bg: #f8f9fa;
+    --cell-bg: white;
+    --cell-hover-bg: #f0f0f0;
+    --board-bg: #333;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --button-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --button-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    --button-hover-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    --theme-toggle-bg: rgba(255, 255, 255, 0.2);
+    --theme-toggle-hover-bg: rgba(255, 255, 255, 0.3);
+}
+
+/* Dark Mode Colors */
+html[data-theme="dark"] {
+    --bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --bg-secondary: #2d3748;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --text-accent: #e2e8f0;
+    --border-color: #4a5568;
+    --input-bg: #4a5568;
+    --input-border: #4a5568;
+    --input-focus-border: #667eea;
+    --input-focus-shadow: rgba(102, 126, 234, 0.2);
+    --scoreboard-bg: #4a5568;
+    --cell-bg: #4a5568;
+    --cell-hover-bg: #5a6578;
+    --board-bg: #1a202c;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    --button-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --button-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    --button-hover-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    --theme-toggle-bg: rgba(255, 255, 255, 0.1);
+    --theme-toggle-hover-bg: rgba(255, 255, 255, 0.2);
+}
+
+
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--bg-primary);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    transition: background 0.3s ease;
 }
 
 .container {
-    background: white;
+    background: var(--bg-secondary);
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     padding: 30px;
     max-width: 500px;
     width: 100%;
     text-align: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Header */
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 header h1 {
-    color: #333;
+    color: var(--text-primary);
     font-size: 2.5rem;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--theme-toggle-bg);
+    border: 2px solid #667eea;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    background: var(--theme-toggle-hover-bg);
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(20deg);
 }
 
 /* Game setup */
@@ -53,24 +147,27 @@ header h1 {
 
 .input-group label {
     font-weight: bold;
-    color: #555;
+    color: var(--text-secondary);
     margin-bottom: 5px;
     font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
 .input-group input {
     padding: 8px 12px;
-    border: 2px solid #ddd;
+    border: 2px solid var(--input-border);
     border-radius: 8px;
     font-size: 0.9rem;
     width: 150px;
-    transition: border-color 0.3s ease;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
 }
 
 .input-group input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px var(--input-focus-shadow);
 }
 
 /* Game info */
@@ -81,22 +178,25 @@ header h1 {
 .current-player {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 15px;
+    transition: color 0.3s ease;
 }
 
 .scoreboard {
     display: flex;
     justify-content: space-around;
-    background: #f8f9fa;
+    background: var(--scoreboard-bg);
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 10px;
+    transition: background 0.3s ease;
 }
 
 .score {
     font-weight: bold;
-    color: #555;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 /* Game board */
@@ -105,16 +205,17 @@ header h1 {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 5px;
-    background: #333;
+    background: var(--board-bg);
     padding: 5px;
     border-radius: 10px;
     margin: 20px auto;
     max-width: 300px;
     aspect-ratio: 1;
+    transition: background 0.3s ease;
 }
 
 .cell {
-    background: white;
+    background: var(--cell-bg);
     border: none;
     border-radius: 5px;
     font-size: 2rem;
@@ -127,10 +228,11 @@ header h1 {
     min-height: 80px;
     position: relative;
     overflow: hidden;
+    color: var(--text-primary);
 }
 
 .cell:hover {
-    background: #f0f0f0;
+    background: var(--cell-hover-bg);
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -179,7 +281,7 @@ header h1 {
 }
 
 .restart-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--button-bg);
     color: white;
     border: none;
     padding: 12px 30px;
@@ -188,12 +290,12 @@ header h1 {
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: var(--button-shadow);
 }
 
 .restart-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: var(--button-hover-shadow);
 }
 
 .restart-btn:active {
@@ -214,6 +316,8 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 .status-message.winner {
@@ -252,6 +356,17 @@ header h1 {
         font-size: 2rem;
     }
     
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+        top: -5px;
+        right: -5px;
+    }
+    
+    .theme-icon {
+        font-size: 1.3rem;
+    }
+    
     .player-inputs {
         flex-direction: column;
         align-items: center;
@@ -283,6 +398,17 @@ header h1 {
     
     header h1 {
         font-size: 1.8rem;
+    }
+    
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        top: -10px;
+        right: -10px;
+    }
+    
+    .theme-icon {
+        font-size: 1.1rem;
     }
     
     .game-board {

@@ -25,6 +25,86 @@ interface WinningCombination {
     type: 'row' | 'column' | 'diagonal';
 }
 
+// Theme Management Interface
+interface ThemeManager {
+    currentTheme: 'light' | 'dark';
+    toggleTheme(): void;
+    setTheme(theme: 'light' | 'dark'): void;
+    loadTheme(): void;
+    saveTheme(): void;
+}
+
+// Theme Manager Class
+class ThemeManager implements ThemeManager {
+    public currentTheme: 'light' | 'dark' = 'light';
+    private themeToggle: HTMLElement | null = null;
+    private themeIcon: HTMLElement | null = null;
+
+    constructor() {
+        this.loadTheme();
+        this.setupThemeToggle();
+    }
+
+    /**
+     * Set up theme toggle button event listener
+     */
+    private setupThemeToggle(): void {
+        this.themeToggle = document.getElementById('themeToggle');
+        this.themeIcon = document.querySelector('.theme-icon');
+        
+        if (this.themeToggle) {
+            this.themeToggle.addEventListener('click', () => this.toggleTheme());
+        }
+    }
+
+    /**
+     * Toggle between light and dark themes
+     */
+    public toggleTheme(): void {
+        this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.setTheme(this.currentTheme);
+    }
+
+    /**
+     * Set the theme and update UI
+     */
+    public setTheme(theme: 'light' | 'dark'): void {
+        this.currentTheme = theme;
+        document.documentElement.setAttribute('data-theme', theme);
+        this.updateThemeIcon();
+        this.saveTheme();
+    }
+
+    /**
+     * Update theme icon based on current theme
+     */
+    private updateThemeIcon(): void {
+        if (this.themeIcon) {
+            this.themeIcon.textContent = this.currentTheme === 'light' ? '🌙' : '☀️';
+        }
+    }
+
+    /**
+     * Load theme from localStorage
+     */
+    public loadTheme(): void {
+        const savedTheme = localStorage.getItem('ticTacToeTheme') as 'light' | 'dark' | null;
+        if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+            this.setTheme(savedTheme);
+        } else {
+            // Default to light theme
+            this.setTheme('light');
+        }
+    }
+
+    /**
+     * Save theme to localStorage
+     */
+    public saveTheme(): void {
+        localStorage.setItem('ticTacToeTheme', this.currentTheme);
+    }
+}
+
 // Game Class
 class TicTacToeGame {
     private gameState!: GameState;
@@ -346,11 +426,16 @@ class TicTacToeGame {
 
 // Initialize the game when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize theme manager first
+    const themeManager = new ThemeManager();
+    
+    // Then initialize the game
     const game = new TicTacToeGame();
     
-    // Make game instance globally available for debugging
+    // Make instances globally available for debugging
     (window as any).ticTacToeGame = game;
+    (window as any).themeManager = themeManager;
 });
 
 // Export for potential module usage
-export { TicTacToeGame, Player, GameState, Move, WinningCombination };
+export { TicTacToeGame, ThemeManager, Player, GameState, Move, WinningCombination };

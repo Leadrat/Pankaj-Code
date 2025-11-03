@@ -1,0 +1,30 @@
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Presentation.deps.json
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Presentation.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Presentation.pdb
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Application.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Domain.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Application.pdb
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Domain.pdb
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.csproj.AssemblyReference.cache
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.csproj.CoreCompileInputs.cache
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBack.8356CA51.Up2Date
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\refint\GameBackend.Presentation.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.pdb
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\ref\GameBackend.Presentation.dll
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Presentation.deps.json
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Presentation.dll
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Presentation.pdb
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Application.dll
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Domain.dll
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Application.pdb
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\bin\Debug\net8.0\GameBackend.Domain.pdb
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.csproj.AssemblyReference.cache
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.csproj.CoreCompileInputs.cache
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBack.8356CA51.Up2Date
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.dll
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\refint\GameBackend.Presentation.dll
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\GameBackend.Presentation.pdb
+C:\Users\Public\mobileapp\GameBackend\GameBackend.Presentation\obj\Debug\net8.0\ref\GameBackend.Presentation.dll

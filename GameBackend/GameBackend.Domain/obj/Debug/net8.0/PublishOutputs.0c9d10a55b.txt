@@ -1,0 +1,3 @@
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Domain\bin\Debug\net8.0\publish\GameBackend.Domain.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Domain\bin\Debug\net8.0\publish\GameBackend.Domain.deps.json
+C:\Users\Pankaj Joshi\mobile app\GameBackend\GameBackend.Domain\bin\Debug\net8.0\publish\GameBackend.Domain.pdb

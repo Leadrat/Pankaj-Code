@@ -1,0 +1,99 @@
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\appsettings.json
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.exe
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.deps.json
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.runtimeconfig.json
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.pdb
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.csproj.AssemblyReference.cache
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.AssemblyInfoInputs.cache
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.AssemblyInfo.cs
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.csproj.CoreCompileInputs.cache
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.GameBackendFixed.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.build.GameBackendFixed.props
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GameBackendFixed.props
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GameBackendFixed.props
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\scopedcss\bundle\GameBackendFixed.styles.css
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBack.333EF7A2.Up2Date
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\refint\GameBackendFixed.dll
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.pdb
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.genruntimeconfig.cache
+C:\Users\Pankaj Joshi\mobile app\GameBackendFixed\obj\Debug\net8.0\ref\GameBackendFixed.dll
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\appsettings.json
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.exe
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.deps.json
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.runtimeconfig.json
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.dll
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.pdb
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Public\mobile app\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.csproj.AssemblyReference.cache
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.AssemblyInfoInputs.cache
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.AssemblyInfo.cs
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.csproj.CoreCompileInputs.cache
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.GameBackendFixed.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.build.GameBackendFixed.props
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GameBackendFixed.props
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GameBackendFixed.props
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\scopedcss\bundle\GameBackendFixed.styles.css
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBack.333EF7A2.Up2Date
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.dll
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\refint\GameBackendFixed.dll
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.pdb
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.genruntimeconfig.cache
+C:\Users\Public\mobile app\GameBackendFixed\obj\Debug\net8.0\ref\GameBackendFixed.dll
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\appsettings.json
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.exe
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.deps.json
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.runtimeconfig.json
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.dll
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\GameBackendFixed.pdb
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Public\mobileapp\GameBackendFixed\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.csproj.AssemblyReference.cache
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.AssemblyInfoInputs.cache
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.AssemblyInfo.cs
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.csproj.CoreCompileInputs.cache
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.GameBackendFixed.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.build.GameBackendFixed.props
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GameBackendFixed.props
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GameBackendFixed.props
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\scopedcss\bundle\GameBackendFixed.styles.css
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBack.333EF7A2.Up2Date
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.dll
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\refint\GameBackendFixed.dll
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.pdb
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\GameBackendFixed.genruntimeconfig.cache
+C:\Users\Public\mobileapp\GameBackendFixed\obj\Debug\net8.0\ref\GameBackendFixed.dll

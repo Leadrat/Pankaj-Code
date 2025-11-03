@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 212 50% 8%;
+    --foreground: 0 0% 100%;
+
+    --card: 215 35% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 215 35% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 189 100% 50%;
+    --primary-foreground: 212 50% 8%;
+
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 25% 16%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 189 100% 50%;
+    --accent-foreground: 212 50% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 189 100% 50%;
+
+    --radius: 1rem;
+    
+    --neon-cyan: 189 100% 50%;
+    --neon-blue: 212 100% 60%;
+    --navy-dark: 212 50% 8%;
+    --navy-medium: 215 35% 12%;
+    --glass-bg: 215 30% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(135deg, hsl(var(--navy-dark)) 0%, hsl(var(--navy-medium)) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5), 0 0 40px hsl(var(--neon-cyan) / 0.3);
+  }
+  
+  .neon-glow-strong {
+    box-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.8), 0 0 60px hsl(var(--neon-cyan) / 0.5), 0 0 90px hsl(var(--neon-cyan) / 0.3);
+  }
+  
+  .glass-effect {
+    background: hsl(var(--glass-bg) / 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+  
+  .cell-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .cell-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px hsl(var(--neon-cyan) / 0.4);
+  }
+  
+  .winner-pulse {
+    animation: pulse-winner 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-winner {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.6);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--neon-cyan) / 1), 0 0 60px hsl(var(--neon-cyan) / 0.8);
+    }
+  }
+}

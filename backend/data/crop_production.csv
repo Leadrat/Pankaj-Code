@@ -1,0 +1,15 @@
+Year,State,Crop,Area,Production,Soil,Yield
+2018,Haryana,Wheat,1000,4500,loamy,4.5
+2018,Haryana,Maize,800,3200,loamy,4.0
+2018,Haryana,Mustard,600,2280,alluvial,3.8
+2019,Haryana,Wheat,1100,4950,loamy,4.5
+2019,Haryana,Maize,820,3440,loamy,4.2
+2019,Haryana,Mustard,620,2480,alluvial,4.0
+2018,Punjab,Wheat,1500,6900,alluvial,4.6
+2018,Punjab,Rice,1300,5200,alluvial,4.0
+2019,Punjab,Wheat,1550,7130,alluvial,4.6
+2019,Punjab,Rice,1350,5400,alluvial,4.0
+2020,Maharashtra,Cotton,900,2700,black,3.0
+2020,Maharashtra,Sugarcane,700,4200,black,6.0
+2021,Maharashtra,Cotton,950,2900,black,3.05
+2021,Maharashtra,Sugarcane,750,4500,black,6.0

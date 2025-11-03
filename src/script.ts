@@ -424,14 +424,13 @@ class TicTacToeGame {
     }
 }
 
-// Initialize the game when the DOM is loaded
+
+// --- Game Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize theme manager first
     const themeManager = new ThemeManager();
-    
     // Then initialize the game
     const game = new TicTacToeGame();
-    
     // Make instances globally available for debugging
     (window as any).ticTacToeGame = game;
     (window as any).themeManager = themeManager;

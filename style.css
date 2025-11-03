@@ -1,3 +1,208 @@
+/* --- Replay Button Styling --- */
+.replay-btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.replay-btn {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: var(--button-shadow);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    transition: all 0.3s;
+    letter-spacing: 0.01em;
+    display: block;
+}
+.replay-btn:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: var(--button-hover-shadow);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+.replay-btn:active {
+    transform: translateY(0) scale(1);
+}
+
+@media (max-width: 768px) {
+    .replay-btn {
+        padding: 10px 18px;
+        font-size: 0.98rem;
+    }
+}
+/* --- Scoreboard Section Layout --- */
+.scoreboard-section {
+    margin: 32px auto 0 auto;
+    padding: 24px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+.scoreboard-section h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+#scoreboard {
+    background: var(--scoreboard-bg);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(102, 126, 234, 0.08);
+    padding: 18px 20px 10px 20px;
+    margin: 0 auto 16px auto;
+    max-width: 350px;
+    min-height: 40px;
+    text-align: left;
+    font-size: 1.08rem;
+    color: var(--text-primary);
+    transition: background 0.3s, color 0.3s;
+}
+
+#scoreboard > div {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px 16px;
+    box-shadow: 0 1px 4px rgba(102, 126, 234, 0.07);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: background 0.3s, color 0.3s;
+}
+
+html[data-theme="dark"] #scoreboard {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+html[data-theme="dark"] #scoreboard > div {
+    background: #4a5568;
+    color: #e2e8f0;
+}
+
+#scoreboard > div .player-name {
+    font-weight: bold;
+    color: #667eea;
+    margin-right: 8px;
+}
+
+#scoreboard > div .score-icons {
+    font-size: 1.1em;
+    margin-left: 6px;
+}
+
+.refresh-scores-btn {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 10px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: var(--button-shadow);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    transition: all 0.3s;
+}
+.refresh-scores-btn:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: var(--button-hover-shadow);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+.refresh-scores-btn:active {
+    transform: translateY(0) scale(1);
+}
+
+@media (max-width: 768px) {
+    .scoreboard-section {
+        padding: 10px 0 0 0;
+    }
+    #scoreboard {
+        padding: 10px 6px 6px 6px;
+        font-size: 0.98rem;
+        max-width: 98vw;
+    }
+    #scoreboard > div {
+        padding: 7px 8px;
+        font-size: 0.97rem;
+    }
+}
+/* --- Scoreboard UI Improvements --- */
+#scoreboard {
+    background: var(--scoreboard-bg);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(102, 126, 234, 0.08);
+    padding: 18px 20px 10px 20px;
+    margin: 24px auto 10px auto;
+    max-width: 350px;
+    min-height: 40px;
+    text-align: left;
+    font-size: 1.08rem;
+    color: var(--text-primary);
+    transition: background 0.3s, color 0.3s;
+}
+
+#scoreboard > div {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px 16px;
+    box-shadow: 0 1px 4px rgba(102, 126, 234, 0.07);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: background 0.3s, color 0.3s;
+}
+
+html[data-theme="dark"] #scoreboard {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+html[data-theme="dark"] #scoreboard > div {
+    background: #4a5568;
+    color: #e2e8f0;
+}
+
+#scoreboard > div .player-name {
+    font-weight: bold;
+    color: #667eea;
+    margin-right: 8px;
+}
+
+#scoreboard > div .score-icons {
+    font-size: 1.1em;
+    margin-left: 6px;
+}
+
+@media (max-width: 480px) {
+    #scoreboard {
+        padding: 10px 6px 6px 6px;
+        font-size: 0.98rem;
+        max-width: 98vw;
+    }
+    #scoreboard > div {
+        padding: 7px 8px;
+        font-size: 0.97rem;
+    }
+}
 /* Reset and base styles */
 * {
     margin: 0;
@@ -60,6 +265,7 @@ body {
     background: var(--bg-primary);
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -74,6 +280,7 @@ body {
     max-width: 500px;
     width: 100%;
     text-align: center;
+    margin: 0 auto;
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 

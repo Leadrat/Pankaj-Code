@@ -45,7 +45,15 @@ def parse_question(q: str):
     ask_climate = bool(re.search(r"climate|warming|temperature|heatwave|heat stress", text))
     ask_bubble = bool(re.search(r"\bbubble\b|\bscatter\b", text))
     ask_soil_best = bool(re.search(r"best\s+soil|which\s+soil\s+is\s+best|suitable\s+soil", text))
-    ask_trend = bool(re.search(r"year[- ]?wise|yearly|trend", text))
+    ask_trend = bool(re.search(r"year[- ]?wise|yearly|trend|over\s+years|since\s+\d{4}", text))
+    # All-India rainfall dataset triggers
+    ask_all_india_rain = bool(re.search(r"all\s*-?\s*india|pan-?india|national\s+rainfall", text))
+    month_token = None
+    for m in ["jun", "june", "jul", "july", "aug", "august", "sep", "sept", "september"]:
+        if re.search(rf"\b{m}\b", text):
+            month_token = m[:3]
+            break
+    ask_departure = bool(re.search(r"departure|deviation|anomaly|percent", text))
     prefer_detailed = bool(re.search(r"detailed", text))
     ask_predict = bool(re.search(r"predict|forecast", text))
     ask_recommend = bool(re.search(r"recommend", text))
@@ -113,6 +121,9 @@ def parse_question(q: str):
         'ask_bubble': ask_bubble,
         'ask_soil_best': ask_soil_best,
         'ask_trend': ask_trend,
+        'ask_all_india_rain': ask_all_india_rain,
+        'month_token': month_token,  # 'jun','jul','aug','sep' or None
+        'ask_departure': ask_departure,
         'prefer_detailed': prefer_detailed,
         'ask_predict': ask_predict,
         'ask_recommend': ask_recommend,

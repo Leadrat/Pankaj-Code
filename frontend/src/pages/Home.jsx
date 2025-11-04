@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import SearchBar from '../components/SearchBar'
 import ResultCard from '../components/ResultCard'
 import ChartDisplay from '../components/ChartDisplay'
+import Logo from '../assets/chatbot-logo.svg'
 
 export default function Home() {
   const [loading, setLoading] = useState(false)
@@ -10,6 +12,7 @@ export default function Home() {
   const [chartData, setChartData] = useState(null)
   const [history, setHistory] = useState([])
   const [q, setQ] = useState('')
+  const navigate = useNavigate()
 
   const samples = [
     'Which fertilizer type gives the best results for a crop?',
@@ -91,6 +94,15 @@ export default function Home() {
       <footer className="border-t">
         <div className="container mx-auto px-4 py-4 text-sm text-gray-600">© {new Date().getFullYear()} Agri Insight</div>
       </footer>
+
+      {/* Floating chat bubble button to open Chat page */}
+      <button
+        aria-label="Open KrishiBot Chat"
+        onClick={() => navigate('/chat')}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-600 text-white shadow-lg ring-4 ring-green-200 hover:bg-green-700 active:scale-95 transition flex items-center justify-center"
+      >
+        <img src={Logo} alt="KrishiBot" className="w-full h-full p-2 object-contain" />
+      </button>
     </div>
   )
 }

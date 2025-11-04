@@ -17,6 +17,36 @@ def _load_csv(name: str, dtype=None):
     return df
 
 
+def load_all_india_rainfall_history():
+    # File: All_India_rainfall_act_dep_1901_2015.csv
+    # Columns include:
+    # YEAR, Actual Rainfall: JUN,JUL,AUG,SEPT,JUN-SEPT,
+    # Departure Percentage: JUN,JUL,AUG,SEP,JUN-SEPT
+    df = _load_csv('All_India_rainfall_act_dep_1901_2015.csv')
+    # Normalize column names we will use
+    ren = {
+        'YEAR': 'Year',
+        'Actual Rainfall: JUN': 'Jun',
+        'Actual Rainfall: JUL': 'Jul',
+        'Actual Rainfall: AUG': 'Aug',
+        'Actual Rainfall: SEPT': 'Sep',
+        'Actual Rainfall: JUN-SEPT': 'MonsoonTotal',
+        'Departure Percentage: JUN': 'Dep_Jun',
+        'Departure Percentage: JUL': 'Dep_Jul',
+        'Departure Percentage: AUG': 'Dep_Aug',
+        'Departure Percentage: SEP': 'Dep_Sep',
+        'Departure Percentage: JUN-SEPT': 'Dep_Monsoon',
+    }
+    for k, v in ren.items():
+        if k in df.columns:
+            df.rename(columns={k: v}, inplace=True)
+    # Ensure numeric types
+    for col in ['Year','Jun','Jul','Aug','Sep','MonsoonTotal','Dep_Jun','Dep_Jul','Dep_Aug','Dep_Sep','Dep_Monsoon']:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+    return df
+
+
 def load_crop_data():
     df = _load_csv('crop_production.csv')
     # Ensure expected columns

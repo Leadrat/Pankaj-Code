@@ -1,7 +1,14 @@
 from flask import Blueprint, request, jsonify, current_app
 import pandas as pd
 import numpy as np
-from utils.data_loader import load_crop_data, load_rainfall_data, load_fertilizer_data, load_climate_data, load_crop_production_detailed
+from utils.data_loader import (
+    load_crop_data,
+    load_rainfall_data,
+    load_fertilizer_data,
+    load_climate_data,
+    load_crop_production_detailed,
+    load_all_india_rainfall_history,
+)
 from utils.nlp_parser import parse_question
 from routes.predict_yield import predict_yield as _predict_yield_api
 from routes.recommend_fertilizer import recommend_fertilizer as _recommend_fertilizer_api
@@ -145,6 +152,43 @@ def dispatch_analysis(intent: dict) -> dict:
                 "Consider local agronomy advisories for crop‑ and region‑specific soil/bed preparation."
             )
             return {"answer": answer, "chartData": {"labels": [], "values": []}}
+
+    # 0a) All-India rainfall history (national, 1901-2015)
+    if intent.get('ask_all_india_rain') or ((intent.get('ask_rainfall') or intent.get('ask_trend')) and not intent.get('state')):
+        try:
+            air = load_all_india_rainfall_history().copy()
+        except Exception:
+            air = None
+        if air is not None and not air.empty and 'Year' in air.columns:
+            air = air.dropna(subset=['Year']).sort_values('Year')
+            month_token = intent.get('month_token')  # 'jun','jul','aug','sep' or None
+            ask_departure = intent.get('ask_departure')
+            # Choose series
+            if month_token:
+                col = {'jun':'Jun','jul':'Jul','aug':'Aug','sep':'Sep'}[month_token]
+                dep = {'jun':'Dep_Jun','jul':'Dep_Jul','aug':'Dep_Aug','sep':'Dep_Sep'}[month_token]
+                ycol = dep if ask_departure and dep in air.columns else col
+                ylab = ('Departure % ' + col) if ycol.startswith('Dep_') else (col + ' Rainfall (mm)')
+                labels = air['Year'].astype(int).astype(str).tolist()
+                values = air[ycol].round(2).tolist()
+                title = f"All-India {ylab} over Years"
+                answer = (
+                    f"All-India {('departure percentage for ' + col) if ycol.startswith('Dep_') else (col + ' rainfall')} across {len(labels)} year(s). "
+                    "This uses the national series (1901–2015) and is independent of state/district filters."
+                )
+                return {"answer": answer, "chartData": {"labels": labels, "values": values, "type": "line", "title": title}}
+            else:
+                # Monsoon total or its departure
+                ycol = 'Dep_Monsoon' if ask_departure and 'Dep_Monsoon' in air.columns else 'MonsoonTotal'
+                ylab = 'Monsoon Departure %' if ycol == 'Dep_Monsoon' else 'Monsoon Rainfall (mm)'
+                labels = air['Year'].astype(int).astype(str).tolist()
+                values = air[ycol].round(2).tolist()
+                title = f"All-India {ylab} (Jun–Sep)"
+                answer = (
+                    f"All-India {ylab.lower()} from {labels[0]} to {labels[-1]} across {len(labels)} year(s). "
+                    "Use the line chart to observe long-term monsoon patterns and anomalies."
+                )
+                return {"answer": answer, "chartData": {"labels": labels, "values": values, "type": "line", "title": title}}
 
     # 1) Climate impact queries
     if intent.get('ask_climate'):
